@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="Camada_1" version="1.1" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .st0 {
+        fill: #faca08;
+      }
+
+      .st1 {
+        fill: #262626;
+      }
+
+      .st2 {
+        fill: #f4f4f4;
+      }
+    </style>
+  </defs>
+  <rect class="st1" x=".2" y=".2" width="31.6" height="31.6" rx="3.2" ry="3.2"></rect>
+  <g>
+    <path class="st0" d="M16,23.7c2-1.1,5-2.7,6.9-3.2v3.2h-6.9Z"></path>
+    <path class="st2" d="M19.5,8.4h0s0,9.6,0,9.6l-7.4-9.6h-3v15.3h3.3v-9.8l5.8,7.5c1.6-.8,3.4-1.7,4.7-2v-11h-3.4Z"></path>
+  </g>
+</svg>
