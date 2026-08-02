@@ -1,0 +1,54 @@
+### maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### node frontend ###
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+.vite/
+
+### banco H2 em arquivo ###
+data/
+*.mv.db
+*.trace.db
+
+### variaveis de ambiente ###
+.env
+.env.local
+.env.*.local
+
+### intellij ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### netbeans ###
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+### vs code ###
+.vscode/
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### logs ###
+*.log
