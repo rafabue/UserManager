@@ -81,6 +81,32 @@ class UserControllerTest {
     }
 
     @Test
+    void create_deveRetornar400_quandoSenhaUltrapassaLimiteDoBcrypt() throws Exception {
+        String senha = "a".repeat(73);
+
+        mockMvc.perform(post("/api/users").with(admin())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"name":"Carolina Bueno","email":"carolina@exemplo.com","password":"%s"}
+                                """.formatted(senha)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.errors[*].field").value(hasItems("password")));
+    }
+
+    @Test
+    void create_deveRetornar400_quandoSenhaAcentuadaUltrapassaLimiteEmBytes() throws Exception {
+        String senha = "á".repeat(40);
+
+        mockMvc.perform(post("/api/users").with(admin())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"name":"Carolina Bueno","email":"carolina@exemplo.com","password":"%s"}
+                                """.formatted(senha)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.errors[*].field").value(hasItems("password")));
+    }
+
+    @Test
     void create_deveRetornar409_quandoEmailJaCadastrado() throws Exception {
         when(userService.create(any(CreateUserRequest.class)))
                 .thenThrow(new EmailAlreadyRegisteredException("carolina@exemplo.com"));
