@@ -32,12 +32,24 @@ npm run dev
 Sobe em `http://localhost:5173`, com proxy de `/api` para a porta 8080 — o que dispensa configurar
 CORS em desenvolvimento. A API precisa estar no ar.
 
-Para gerar e executar o jar da API:
+Para gerar e executar o jar:
 
 ```bash
 cd backend
-./mvnw clean package
+./mvnw clean package -Pfrontend
 java -jar target/user-manager-1.0.0.jar
+```
+
+O profile `frontend` compila o Vue e embute o bundle no jar, resultando em um artefato único que
+serve a interface na raiz e a API em `/api`. Sem ele, `./mvnw clean package` entrega apenas a API, e
+o build não depende de Node.
+
+O banco é um arquivo H2 em `backend/data/usermanager.mv.db`, criado na primeira execução. Para
+voltar ao estado inicial, pare a aplicação e apague o arquivo — o Flyway recria o schema e roda as
+migrations na próxima subida:
+
+```bash
+rm backend/data/usermanager.mv.db
 ```
 
 Testes:
