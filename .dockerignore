@@ -1,0 +1,9 @@
+.git
+.idea
+**/target
+**/node_modules
+**/dist
+**/*.tsbuildinfo
+**/data
+**/*.md
+.env

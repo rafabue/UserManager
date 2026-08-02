@@ -8,7 +8,39 @@ Vue 3.
 Java 17, Spring Boot 3.5 (Web, Security, Data JPA, Validation), H2 com Flyway, springdoc-openapi.
 Frontend em Vue 3 com TypeScript, Vite, Vue Router e Pinia.
 
+## Instância publicada
+
+Interface disponível em [https://usermanager-test.tech](https://usermanager-test.tech), com as
+mesmas credenciais da execução local.
+
+A notificação de e-mail é registrada no console da aplicação, então pelo domínio ela não é visível.
+Para conferir, execute local e acompanhe a saída do terminal ao cadastrar ou editar um usuário.
+
 ## Como executar
+
+### Com Docker
+
+Não exige Java nem Node instalados:
+
+```bash
+docker compose up --build
+```
+
+Sobe em `http://localhost:8080`, com a interface na raiz e a API em `/api`. O primeiro build demora,
+porque compila frontend e backend dentro da imagem.
+
+A notificação de e-mail é registrada no console da aplicação:
+
+```bash
+docker compose logs -f app
+```
+
+O banco fica em um volume nomeado e sobrevive à recriação do container. Para parar, `docker compose
+down`; para parar e zerar o banco, `docker compose down -v`.
+
+Credenciais e porta são configuráveis por variáveis de ambiente, conforme o `.env.example`.
+
+### Sem Docker
 
 O build precisa de JDK 17 e Node 22. O wrapper do Maven dispensa a instalação prévia do Maven.
 
