@@ -1,5 +1,7 @@
 package com.nayax.usermanager.exception;
 
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -11,7 +13,12 @@ import java.util.List;
 
 /**
  * Traduz as exceções da aplicação em respostas {@link ProblemDetail}.
+ *
+ * <p>Precedência necessária porque o handler embutido do Spring, ativado por
+ * {@code spring.mvc.problemdetails.enabled}, também trata falha de validação e sem a lista de
+ * campos reprovados.</p>
  */
+@Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

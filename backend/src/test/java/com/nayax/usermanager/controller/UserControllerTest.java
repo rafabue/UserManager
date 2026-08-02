@@ -107,6 +107,16 @@ class UserControllerTest {
     }
 
     @Test
+    void create_deveResponderProblemDetail_quandoCorpoMalformado() throws Exception {
+        mockMvc.perform(post("/api/users").with(admin())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"name\":\"Carolina\","))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.title").exists())
+                .andExpect(jsonPath("$.timestamp").doesNotExist());
+    }
+
+    @Test
     void create_deveRetornar409_quandoEmailJaCadastrado() throws Exception {
         when(userService.create(any(CreateUserRequest.class)))
                 .thenThrow(new EmailAlreadyRegisteredException("carolina@exemplo.com"));
