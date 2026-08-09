@@ -8,14 +8,6 @@ Vue 3.
 Java 17, Spring Boot 3.5 (Web, Security, Data JPA, Validation), H2 com Flyway, springdoc-openapi.
 Frontend em Vue 3 com TypeScript, Vite, Vue Router e Pinia.
 
-## Instância publicada
-
-Interface disponível em [https://usermanager-test.tech](https://usermanager-test.tech). Credenciais
-de acesso enviadas separadamente.
-
-A notificação de e-mail é registrada no console da aplicação, então pelo domínio ela não é visível.
-Para conferir, execute local e acompanhe a saída do terminal ao cadastrar ou editar um usuário.
-
 ## Como executar
 
 ### Com Docker
